@@ -1,8 +1,10 @@
 package com.hutech.javas3d3.Controllers;
 
+import com.hutech.javas3d3.Entities.Classroom;
 import com.hutech.javas3d3.Entities.Student;
 import com.hutech.javas3d3.RequestEntities.StudentCreate;
 import com.hutech.javas3d3.RequestEntities.StudentEdit;
+import com.hutech.javas3d3.Services.ClassroomServices;
 import com.hutech.javas3d3.Services.StudentServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,8 @@ import java.util.List;
 public class StudentController {
     @Autowired
     private StudentServices studentServices;
+    @Autowired
+    private ClassroomServices classServices;
     @GetMapping("")
     public String getAllStudent(Model model){
         List<Student> students = studentServices.getAllStudent();
@@ -25,7 +29,9 @@ public class StudentController {
     @GetMapping("/new")
     public String addStudent(Model model){
         Student std = new Student();
+        List<Classroom> classrooms = classServices.getAllClassrooms();
         model.addAttribute("student", std);
+        model.addAttribute("classes", classrooms);
         return "Student/add";
     }
     @PostMapping("/save")

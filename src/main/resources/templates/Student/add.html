@@ -27,6 +27,14 @@
                 <td>DateOfBirth</td>
                 <td><input type="date" th:field="*{dateOfBirth}"></td>
             </tr>
+            <tr>
+                <td>Classroom</td>
+                <td>
+                    <select>
+                        <option th:each="class : ${classes}" th:text="${class.name}" th:value="${class.classID}"></option>
+                    </select>
+                </td>
+            </tr>
         </table>
         <input type="submit" value="Create">
     </form>

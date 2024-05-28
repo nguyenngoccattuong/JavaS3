@@ -41,6 +41,7 @@
         <td th:text="${student.email}"></td>
         <td th:text="${student.password}"></td>
         <td th:text="${student.dateOfBirth}"></td>
+        <td th:text="${student.classroom.name}"></td>
         <td>
             <a th:href="'/students/edit/'+${student.id}">Edit</a>
             <a th:href="'/students/delete/'+${student.id}">Delete</a>

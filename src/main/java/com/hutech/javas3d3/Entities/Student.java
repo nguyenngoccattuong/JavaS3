@@ -27,6 +27,10 @@ public class Student {
     @Transient
     private int Age;
 
+    @ManyToOne()
+    @JoinColumn(name = "classID")
+    private Classroom classroom;
+
 
     public Student(String id, String firstName, String lastName, String email, String password, Date dateOfBirth) {
         this.id = id;

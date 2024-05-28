@@ -38,6 +38,7 @@ public class StudentServices {
            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
            student.setDateOfBirth(dateFormat.parse(studentCreate.getDateOfBirth()));
            student.setAge((new Date()).getYear()-student.getDateOfBirth().getYear());
+           student.setClassroom(studentCreate.getClassroom());
            studentRepository.save(student);
            return student;
        }catch (Exception e){
